@@ -19,7 +19,7 @@ public class Window {
   private final String title;
   private long windowId;
 
-  private static Window window = null;
+  private static Window instance = null;
 
   private Window() {
     this.width = 1920;
@@ -28,11 +28,11 @@ public class Window {
   }
 
   public static Window get() {
-    if (Window.window == null) {
-      Window.window = new Window();
+    if (Window.instance == null) {
+      Window.instance = new Window();
     }
 
-    return Window.window;
+    return Window.instance;
   }
 
   public void run() {
@@ -67,13 +67,10 @@ public class Window {
     windowId = glfwCreateWindow(this.width, this.height, this.title, NULL, NULL);
     if (windowId == NULL) throw new RuntimeException("Failed to create the GLFW window");
 
-    // Setup a key callback. It will be called every time a key is pressed, repeated or released.
-    glfwSetKeyCallback(
-        windowId,
-        (window, key, scancode, action, mods) -> {
-          if (key == GLFW_KEY_ESCAPE && action == GLFW_RELEASE)
-            glfwSetWindowShouldClose(window, true); // We will detect this in the rendering loop
-        });
+    glfwSetCursorPosCallback(windowId, MouseListener::mousePosCallback);
+    glfwSetMouseButtonCallback(windowId, MouseListener::mouseButtonCallback);
+    glfwSetScrollCallback(windowId, MouseListener::mouseScrollCallback);
+    glfwSetKeyCallback(windowId, KeyListener::keyCallback);
 
     // Get the thread stack and push a new frame
     try (MemoryStack stack = stackPush()) {
@@ -98,22 +95,23 @@ public class Window {
 
     // Make the window visible
     glfwShowWindow(windowId);
-  }
 
-  private void loop() {
     // This line is critical for LWJGL's interoperation with GLFW's
     // OpenGL context, or any context that is managed externally.
     // LWJGL detects the context that is current in the current thread,
     // creates the GLCapabilities instance and makes the OpenGL
     // bindings available for use.
     GL.createCapabilities();
+  }
+
+  private void loop() {
 
     // Set the clear color
     glClearColor(1.0f, 0.0f, 0.0f, 0.0f);
 
     // Run the rendering loop until the user has attempted to close
     // the window or has pressed the ESCAPE key.
-    while ( !glfwWindowShouldClose(windowId) ) {
+    while (!glfwWindowShouldClose(windowId)) {
       glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // clear the framebuffer
 
       glfwSwapBuffers(windowId); // swap the color buffers
@@ -121,6 +119,11 @@ public class Window {
       // Poll for window events. The key callback above will only be
       // invoked during this call.
       glfwPollEvents();
+
+      // Input
+      if (KeyListener.isKeyPressed(GLFW_KEY_ESCAPE)) {
+        glfwSetWindowShouldClose(windowId, true);
+      }
     }
   }
 }
