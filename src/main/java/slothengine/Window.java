@@ -5,6 +5,7 @@ import org.lwjgl.glfw.GLFWErrorCallback;
 import org.lwjgl.glfw.GLFWVidMode;
 import org.lwjgl.opengl.GL;
 import org.lwjgl.system.MemoryStack;
+import util.Time;
 
 import java.nio.IntBuffer;
 
@@ -18,13 +19,29 @@ public class Window {
   private int width, height;
   private final String title;
   private long windowId;
+  public float r, g, b, a;
 
   private static Window instance = null;
+
+  private static Scene activeScene = null;
 
   private Window() {
     this.width = 1920;
     this.height = 1080;
     this.title = "Oni-chan";
+  }
+
+  public static void changeScene(int scene) {
+    switch (scene) {
+      case 0:
+        activeScene = new LevelEditorScene();
+        break;
+      case 1:
+        activeScene = new LevelScene();
+        break;
+      default:
+        throw new IndexOutOfBoundsException("Scene not loaded");
+    }
   }
 
   public static Window get() {
@@ -102,28 +119,39 @@ public class Window {
     // creates the GLCapabilities instance and makes the OpenGL
     // bindings available for use.
     GL.createCapabilities();
+
+    Window.changeScene(0);
   }
 
   private void loop() {
-
-    // Set the clear color
-    glClearColor(1.0f, 0.0f, 0.0f, 0.0f);
+    float beginTime = Time.getTime();
+    float endTime = Time.getTime();
+    float deltaTime = -1.0f;
 
     // Run the rendering loop until the user has attempted to close
     // the window or has pressed the ESCAPE key.
     while (!glfwWindowShouldClose(windowId)) {
-      glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // clear the framebuffer
-
-      glfwSwapBuffers(windowId); // swap the color buffers
-
       // Poll for window events. The key callback above will only be
       // invoked during this call.
       glfwPollEvents();
+
+      glClearColor(r, g, b, a);
+      glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // clear the framebuffer
+
+      if (deltaTime >= 0) {
+        activeScene.update(deltaTime);
+      }
+
+      glfwSwapBuffers(windowId); // swap the color buffers
 
       // Input
       if (KeyListener.isKeyPressed(GLFW_KEY_ESCAPE)) {
         glfwSetWindowShouldClose(windowId, true);
       }
+
+      endTime = Time.getTime();
+      deltaTime = endTime - beginTime;
+      beginTime = endTime;
     }
   }
 }
