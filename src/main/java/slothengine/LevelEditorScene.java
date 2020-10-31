@@ -20,7 +20,7 @@ public class LevelEditorScene extends Scene {
           + "void main()\n"
           + "{\n"
           + "    fColor = aColor;\n"
-          + "    gl_Position = vec4(aPos, 0);\n"
+          + "    gl_Position = vec4(aPos, 1.0);\n"
           + "}\n";
 
   private String fragmentShaderSrc =
@@ -135,7 +135,7 @@ public class LevelEditorScene extends Scene {
     // Add the vertex attribute pointers
     int positionSize = 3;
     int colorSize = 4;
-    int floatSizeBytes = 4;
+    int floatSizeBytes = Float.BYTES;
     int vertexSizeBytes = (positionSize + colorSize) * floatSizeBytes;
 
     glVertexAttribPointer(0, positionSize, GL_FLOAT, false, vertexSizeBytes, 0);
