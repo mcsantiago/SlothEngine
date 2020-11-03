@@ -1,5 +1,6 @@
 package slothengine;
 
+import org.joml.Vector2f;
 import org.lwjgl.BufferUtils;
 import renderer.Shader;
 
@@ -12,11 +13,11 @@ import static org.lwjgl.opengl.GL30.glGenVertexArrays;
 
 public class LevelEditorScene extends Scene {
   private float[] vertexArray = {
-    // position               // color
-     0.5f, -0.5f, 0.0f,        1.0f, 0.0f, 0.0f, 1.0f, // bottom right
-    -0.5f,  0.5f, 0.0f,        0.0f, 1.0f, 0.0f, 1.0f, // Top left
-     0.5f,  0.5f, 0.0f,        0.0f, 0.0f, 1.0f, 1.0f, // Top right
-    -0.5f, -0.5f, 0.0f,        1.0f, 0.0f, 1.0f, 1.0f, // Bottom left
+    // position                   // color
+    100.5f,   0.5f, 0.0f,        1.0f, 0.0f, 0.0f, 1.0f, // bottom right
+      0.5f, 100.5f, 0.0f,        0.0f, 1.0f, 0.0f, 1.0f, // Top left
+    100.5f, 100.5f, 0.0f,        0.0f, 0.0f, 1.0f, 1.0f, // Top right
+      0.5f,   0.5f, 0.0f,        1.0f, 0.0f, 1.0f, 1.0f, // Bottom left
   };
 
   // Must be in counter clockwise order!
@@ -37,6 +38,8 @@ public class LevelEditorScene extends Scene {
   @Override
   public void init() {
     super.init();
+    this.camera = new Camera(new Vector2f());
+
     defaultShader.compileAndLink();
 
     // ==============================================================
@@ -77,7 +80,11 @@ public class LevelEditorScene extends Scene {
 
   @Override
   public void update(float deltaTime) {
+    camera.position.x -= deltaTime * 10;
+
     defaultShader.use();
+    defaultShader.uploadMat4("uProjection", camera.getProjectionMatrix());
+    defaultShader.uploadMat4("uView", camera.getViewMatrix());
 
     // Bind the VAO
     glBindVertexArray(vaoID);

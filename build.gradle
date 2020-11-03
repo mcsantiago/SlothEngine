@@ -7,6 +7,9 @@ version '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
+    maven {
+        url "https://oss.sonatype.org/content/repositories/snapshots/"
+    }
 }
 
 dependencies {
@@ -26,6 +29,7 @@ switch (OperatingSystem.current()) {
         break
 }
 
+project.ext.jomlVersion = "1.9.25"
 dependencies {
     implementation platform("org.lwjgl:lwjgl-bom:$lwjglVersion")
 
@@ -43,5 +47,8 @@ dependencies {
     runtimeOnly "org.lwjgl:lwjgl-openal::$lwjglNatives"
     runtimeOnly "org.lwjgl:lwjgl-opengl::$lwjglNatives"
     runtimeOnly "org.lwjgl:lwjgl-stb::$lwjglNatives"
+
+    compile "org.joml:joml:${jomlVersion}"
+
 }
 
