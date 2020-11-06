@@ -7,11 +7,13 @@ import org.joml.Vector4f;
 import org.lwjgl.BufferUtils;
 import renderer.Shader;
 import renderer.Texture;
+import util.AssetPool;
 import util.Time;
 
 import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
 
+import static org.lwjgl.glfw.GLFW.*;
 import static org.lwjgl.opengl.GL20.*;
 import static org.lwjgl.opengl.GL30.glBindVertexArray;
 import static org.lwjgl.opengl.GL30.glGenVertexArrays;
@@ -32,6 +34,7 @@ public class LevelEditorScene extends Scene {
     float totalHeight = (float)(300 - yOffset * 2);
     float sizeX = totalWidth / 100.0f;
     float sizeY = totalHeight/ 100.0f;
+    float padding = 0;
 
     for (int x = 0; x < 100; x++) {
       for (int y = 0; y < 100; y++) {
@@ -44,10 +47,26 @@ public class LevelEditorScene extends Scene {
         this.addGameObject(go);
       }
     }
+
+    loadResources();
+  }
+
+  private void loadResources() {
+    AssetPool.getShader("assets/shaders/default.glsl");
   }
 
   @Override
   public void update(float deltaTime) {
+    if (KeyListener.isKeyPressed(GLFW_KEY_A)) {
+      camera.position.x += 100f * deltaTime;
+    } else if (KeyListener.isKeyPressed(GLFW_KEY_D)) {
+      camera.position.x -= 100f * deltaTime;
+    } else if (KeyListener.isKeyPressed(GLFW_KEY_S)) {
+      camera.position.y += 100f * deltaTime;
+    } else if (KeyListener.isKeyPressed(GLFW_KEY_W)) {
+      camera.position.y -= 100f * deltaTime;
+    }
+
     for (GameObject go : this.gameObjects) {
       go.update(deltaTime);
     }
