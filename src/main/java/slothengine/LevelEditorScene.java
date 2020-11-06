@@ -1,21 +1,11 @@
 package slothengine;
 
-import components.FontRenderer;
 import components.SpriteRenderer;
 import org.joml.Vector2f;
 import org.joml.Vector4f;
-import org.lwjgl.BufferUtils;
-import renderer.Shader;
-import renderer.Texture;
 import util.AssetPool;
-import util.Time;
-
-import java.nio.FloatBuffer;
-import java.nio.IntBuffer;
 
 import static org.lwjgl.glfw.GLFW.*;
-import static org.lwjgl.opengl.GL20.*;
-import static org.lwjgl.opengl.GL30.glBindVertexArray;
 import static org.lwjgl.opengl.GL30.glGenVertexArrays;
 
 public class LevelEditorScene extends Scene {

@@ -5,7 +5,6 @@ import org.lwjgl.glfw.GLFWErrorCallback;
 import org.lwjgl.glfw.GLFWVidMode;
 import org.lwjgl.opengl.GL;
 import org.lwjgl.system.MemoryStack;
-import util.Time;
 
 import java.nio.IntBuffer;
 
@@ -137,8 +136,8 @@ public class Window {
   }
 
   private void loop() {
-    float beginTime = Time.getTime();
-    float endTime = Time.getTime();
+    float beginTime = (float)glfwGetTime();
+    float endTime;
     float deltaTime = -1.0f;
 
     // Run the rendering loop until the user has attempted to close
@@ -162,7 +161,7 @@ public class Window {
         glfwSetWindowShouldClose(windowId, true);
       }
 
-      endTime = Time.getTime();
+      endTime = (float) glfwGetTime();
       deltaTime = endTime - beginTime;
       beginTime = endTime;
     }
