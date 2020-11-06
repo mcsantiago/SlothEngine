@@ -12,6 +12,7 @@ import java.util.List;
 import static org.lwjgl.opengl.GL15.*;
 import static org.lwjgl.opengl.GL20.*;
 import static org.lwjgl.opengl.GL30.*;
+import static org.lwjgl.opengl.GL45.glBindTextureUnit;
 
 public class RenderBatch {
     // Vertex
@@ -170,9 +171,8 @@ public class RenderBatch {
         shader.use();
         shader.uploadMat4("uProjection", Window.getActiveScene().getCamera().getProjectionMatrix());
         shader.uploadMat4("uView", Window.getActiveScene().getCamera().getViewMatrix());
-        for (int i = 0; i < textures.size(); i++) {
-            glActiveTexture(GL_TEXTURE0 + i + 1);
-            textures.get(i).bind();
+        for (int textureSlot = 0; textureSlot < textures.size(); textureSlot++) {
+            glBindTextureUnit(textureSlot + 1, textures.get(textureSlot).getTexID());
         }
         shader.uploadIntArray("uTextures", texSlots);
 
