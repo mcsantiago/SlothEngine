@@ -49,6 +49,10 @@ public class Window {
     }
   }
 
+  public static Scene getActiveScene() {
+    return activeScene;
+  }
+
   public static Window get() {
     if (Window.instance == null) {
       Window.instance = new Window();
