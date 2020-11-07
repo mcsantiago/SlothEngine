@@ -1,5 +1,6 @@
 package slothengine;
 
+import components.Animation;
 import components.Sprite;
 import components.SpriteRenderer;
 import components.Spritesheet;
@@ -27,6 +28,7 @@ public class LevelEditorScene extends Scene {
 
     obj1 = new GameObject("Object 1", new Transform(new Vector2f(100, 100), new Vector2f(256, 256)));
     obj1.addComponent(new SpriteRenderer(sprites.getSprite(0)));
+    obj1.addComponent(new Animation(0, 4, 0.2f, sprites));
     addGameObject(obj1);
 
   }
@@ -39,7 +41,7 @@ public class LevelEditorScene extends Scene {
 
   @Override
   public void update(float deltaTime) {
-//    obj1.transform.position.x += 100f * deltaTime;
+    obj1.transform.position.x += 100f * deltaTime;
 
     for (GameObject go : this.gameObjects) {
       go.update(deltaTime);
