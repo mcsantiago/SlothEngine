@@ -63,7 +63,6 @@ public class RenderBatch {
         this.sprites[index] = spr;
         this.numSprites++;
 
-        // TODO: When we go over 8 slots, start new batch
         if (spr.getTexture() != null) {
             if (!textures.contains(spr.getTexture())) {
                 textures.add(spr.getTexture());
@@ -220,5 +219,13 @@ public class RenderBatch {
 
     public boolean hasRoom() {
         return hasRoom;
+    }
+
+    public boolean hasTextureRoom() {
+        return this.textures.size() < 8;
+    }
+
+    public boolean hasTexture(Texture tex) {
+        return this.textures.contains(tex);
     }
 }
