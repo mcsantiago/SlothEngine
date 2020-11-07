@@ -11,6 +11,7 @@ import static org.lwjgl.stb.STBImage.*;
 public class Texture {
     private String filepath;
     private int texID;
+    private int width, height;
 
     public Texture(String filepath) {
         this.filepath = filepath;
@@ -36,6 +37,8 @@ public class Texture {
         ByteBuffer image = stbi_load(filepath, width, height, channels, 0);
 
         assert image != null : "Error: (Texture) Could not load image '" + filepath + "'";
+        this.width = width.get(0);
+        this.height = height.get(0);
 
         if (channels.get(0) == 3) {
             glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width.get(0), height.get(0),
@@ -60,5 +63,13 @@ public class Texture {
 
     public int getTexID() {
         return texID;
+    }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public int getHeight() {
+        return height;
     }
 }
