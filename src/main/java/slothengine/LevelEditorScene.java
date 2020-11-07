@@ -11,6 +11,9 @@ import static org.lwjgl.glfw.GLFW.*;
 import static org.lwjgl.opengl.GL30.glGenVertexArrays;
 
 public class LevelEditorScene extends Scene {
+
+  private GameObject obj1;
+
   public LevelEditorScene() {
   }
 
@@ -22,7 +25,7 @@ public class LevelEditorScene extends Scene {
 
     Spritesheet sprites = AssetPool.getSpritesheet("assets/spritesheets/spritesheet.png");
 
-    GameObject obj1 = new GameObject("Object 1", new Transform(new Vector2f(100, 100), new Vector2f(256, 256)));
+    obj1 = new GameObject("Object 1", new Transform(new Vector2f(100, 100), new Vector2f(256, 256)));
     obj1.addComponent(new SpriteRenderer(sprites.getSprite(0)));
     addGameObject(obj1);
 
@@ -36,15 +39,7 @@ public class LevelEditorScene extends Scene {
 
   @Override
   public void update(float deltaTime) {
-    if (KeyListener.isKeyPressed(GLFW_KEY_A)) {
-      camera.position.x += 100f * deltaTime;
-    } else if (KeyListener.isKeyPressed(GLFW_KEY_D)) {
-      camera.position.x -= 100f * deltaTime;
-    } else if (KeyListener.isKeyPressed(GLFW_KEY_S)) {
-      camera.position.y += 100f * deltaTime;
-    } else if (KeyListener.isKeyPressed(GLFW_KEY_W)) {
-      camera.position.y -= 100f * deltaTime;
-    }
+//    obj1.transform.position.x += 100f * deltaTime;
 
     for (GameObject go : this.gameObjects) {
       go.update(deltaTime);

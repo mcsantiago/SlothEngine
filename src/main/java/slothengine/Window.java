@@ -93,7 +93,7 @@ public class Window {
 //    glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, GLFW_TRUE);
 
     // Create the window
-    windowId = glfwCreateWindow(this.width, this.height, this.title, NULL, NULL);
+    windowId = glfwCreateWindow(this.width, this.height, this.title, glfwGetPrimaryMonitor(), NULL);
     if (windowId == NULL) throw new RuntimeException("Failed to create the GLFW window");
 
     glfwSetCursorPosCallback(windowId, MouseListener::mousePosCallback);
