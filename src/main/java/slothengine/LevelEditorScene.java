@@ -14,6 +14,7 @@ import static org.lwjgl.opengl.GL30.glGenVertexArrays;
 public class LevelEditorScene extends Scene {
 
   private GameObject obj1;
+  private GameObject obj2;
 
   public LevelEditorScene() {
   }
@@ -26,10 +27,17 @@ public class LevelEditorScene extends Scene {
 
     Spritesheet sprites = AssetPool.getSpritesheet("assets/spritesheets/spritesheet.png");
 
-    obj1 = new GameObject("Object 1", new Transform(new Vector2f(100, 100), new Vector2f(256, 256)));
+    obj1 = new GameObject("Object 1",
+            new Transform(new Vector2f(100, 100), new Vector2f(256, 256)), -1);
     obj1.addComponent(new SpriteRenderer(sprites.getSprite(0)));
     obj1.addComponent(new Animation(0, 4, 0.2f, sprites));
     addGameObject(obj1);
+
+    obj2 = new GameObject("Object 2",
+            new Transform(new Vector2f(100, 100), new Vector2f(256, 256)), 4);
+    obj2.addComponent(new SpriteRenderer(sprites.getSprite(0)));
+    obj2.addComponent(new Animation(0, 4, 0.2f, sprites));
+    addGameObject(obj2);
 
   }
 
