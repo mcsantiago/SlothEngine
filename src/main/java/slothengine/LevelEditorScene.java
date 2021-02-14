@@ -4,6 +4,7 @@ import components.Animation;
 import components.Sprite;
 import components.SpriteRenderer;
 import components.Spritesheet;
+import imgui.ImGui;
 import org.joml.Vector2f;
 import org.joml.Vector4f;
 import util.AssetPool;
@@ -39,6 +40,7 @@ public class LevelEditorScene extends Scene {
     obj2.addComponent(new Animation(0, 4, 0.2f, sprites));
     addGameObject(obj2);
 
+    this.activeGameObject = obj1; // Temporary measure
   }
 
   private void loadResources() {
@@ -56,5 +58,12 @@ public class LevelEditorScene extends Scene {
     }
 
     this.renderer.render();
+  }
+
+  @Override
+  public void imgui() {
+      ImGui.begin("Test window");
+      ImGui.text("Some random text");
+      ImGui.end();
   }
 }

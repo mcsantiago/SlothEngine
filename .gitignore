@@ -90,3 +90,5 @@ fabric.properties
 .project
 .settings/
 bin/
+
+!/imgui.ini

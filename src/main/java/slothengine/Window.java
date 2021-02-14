@@ -25,9 +25,9 @@ public class Window {
   private static Scene activeScene = null;
 
   private Window() {
-    this.width = 1920;
-    this.height = 1080;
-    this.title = "Oni-chan";
+    this.width = 1680;
+    this.height = 1050;
+    this.title = "Sloth Engine 0.1";
   }
 
   public static void changeScene(int scene) {
@@ -101,7 +101,7 @@ public class Window {
 //    glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, GLFW_TRUE);
 
     // Create the window
-    windowId = glfwCreateWindow(this.width, this.height, this.title, glfwGetPrimaryMonitor(), NULL);
+    windowId = glfwCreateWindow(this.width, this.height, this.title, NULL, NULL);
     if (windowId == NULL) throw new RuntimeException("Failed to create the GLFW window");
 
     glfwSetCursorPosCallback(windowId, MouseListener::mousePosCallback);
@@ -167,7 +167,7 @@ public class Window {
         activeScene.update(deltaTime);
       }
 
-      this.imGuiLayer.update(deltaTime);
+      this.imGuiLayer.update(deltaTime, activeScene);
       glfwSwapBuffers(windowId); // swap the color buffers
 
       // Input
