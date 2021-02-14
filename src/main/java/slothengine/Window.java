@@ -18,10 +18,10 @@ public class Window {
   private int width, height;
   private final String title;
   private long windowId;
+  private ImGuiLayer imGuiLayer;
   public float r, g, b, a;
 
   private static Window instance = null;
-
   private static Scene activeScene = null;
 
   private Window() {
@@ -58,6 +58,14 @@ public class Window {
     }
 
     return Window.instance;
+  }
+
+  public static float getWidth() {
+    return get().width;
+  }
+
+  public static float getHeight() {
+    return get().height;
   }
 
   public void run() {
@@ -134,6 +142,8 @@ public class Window {
 
     glEnable(GL_BLEND);
     glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
+    this.imGuiLayer = new ImGuiLayer(windowId);
+    this.imGuiLayer.initImGui();
 
     Window.changeScene(0);
   }
@@ -157,6 +167,7 @@ public class Window {
         activeScene.update(deltaTime);
       }
 
+      this.imGuiLayer.update(deltaTime);
       glfwSwapBuffers(windowId); // swap the color buffers
 
       // Input
