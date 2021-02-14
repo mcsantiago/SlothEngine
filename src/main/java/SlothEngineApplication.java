@@ -1,6 +1,6 @@
 import slothengine.Window;
 
-public class OniChanApplication {
+public class SlothEngineApplication {
   public static void main(String[] args) {
     Window window = Window.get();
     window.run();
