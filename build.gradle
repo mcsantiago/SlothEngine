@@ -27,12 +27,15 @@ project.ext {
     lwjglVersion = '3.2.3'
     imguiVersion = '1.80-1.5.0'
     jomlVersion = '1.9.25'
+    gsonVersion = '2.8.6'
+    lombokVersion = '1.18.16'
 }
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
     implementation platform("org.lwjgl:lwjgl-bom:$lwjglVersion")
 
+    // LWJGL
     implementation "org.lwjgl:lwjgl"
     implementation "org.lwjgl:lwjgl-assimp"
     implementation "org.lwjgl:lwjgl-glfw"
@@ -41,10 +44,21 @@ dependencies {
     implementation "org.lwjgl:lwjgl-opengl"
     implementation "org.lwjgl:lwjgl-stb"
 
+    // ImGui
     implementation "io.github.spair:imgui-java-binding:$imguiVersion"
     implementation "io.github.spair:imgui-java-lwjgl3:$imguiVersion"
     implementation "io.github.spair:imgui-java-natives-windows:$imguiVersion"
     implementation "io.github.spair:imgui-java-app:$imguiVersion"
+
+    // GSON
+    implementation "com.google.code.gson:gson:$gsonVersion"
+
+    // LOMBOK
+    compileOnly "org.projectlombok:lombok:$lombokVersion"
+    annotationProcessor "org.projectlombok:lombok:$lombokVersion"
+
+    testCompileOnly "org.projectlombok:lombok:$lombokVersion"
+    testAnnotationProcessor "org.projectlombok:lombok:$lombokVersion"
 
     runtimeOnly "org.lwjgl:lwjgl::$lwjglNatives"
     runtimeOnly "org.lwjgl:lwjgl-assimp::$lwjglNatives"

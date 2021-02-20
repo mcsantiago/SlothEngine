@@ -34,18 +34,17 @@ public class Window {
     switch (scene) {
       case 0:
         activeScene = new LevelEditorScene();
-        activeScene.init();
-        activeScene.start();
         break;
       case 1:
         activeScene = new LevelScene();
-        activeScene.init();
-        activeScene.start();
         break;
       default:
         assert false: "Unknown scene '" + scene + "'";
         break;
     }
+
+    activeScene.init();
+    activeScene.start();
   }
 
   public static Scene getActiveScene() {
@@ -179,5 +178,6 @@ public class Window {
       deltaTime = endTime - beginTime;
       beginTime = endTime;
     }
+    activeScene.saveExit();
   }
 }

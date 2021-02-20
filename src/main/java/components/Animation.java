@@ -1,22 +1,16 @@
 package components;
 
+import lombok.Setter;
 import slothengine.Component;
 
 public class Animation extends Component {
-    private int spriteIndexStart;
-    private int currentSpriteIndex;
-    private int spriteIndexEnd;
-    private float spriteFlipTime;
-    private float spriteFlipTimeLeft;
-    private Spritesheet sprites;
+    @Setter private int spriteIndexStart;
+    @Setter private int spriteIndexEnd;
+    @Setter private float spriteFlipTime;
+    @Setter private Spritesheet sprites;
 
-    public Animation(int spriteIndexStart, int spriteIndexEnd, float spriteFlipTime, Spritesheet sprites) {
-        this.spriteIndexStart = this.currentSpriteIndex = spriteIndexStart;
-        this.spriteIndexEnd = spriteIndexEnd;
-        this.spriteFlipTime = spriteFlipTime;
-        this.spriteFlipTimeLeft = 0;
-        this.sprites = sprites;
-    }
+    private int currentSpriteIndex;
+    private float spriteFlipTimeLeft;
 
     @Override
     public void update(float deltaTime) {

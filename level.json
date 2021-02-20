@@ -1,0 +1,1522 @@
+[
+  {
+    "name": "Object 1",
+    "components": [
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "texture": {
+              "filepath": "assets/spritesheets/spritesheet.png",
+              "texID": 2,
+              "width": 224,
+              "height": 32
+            },
+            "texCoords": [
+              {
+                "x": 0.2857143,
+                "y": 1.0
+              },
+              {
+                "x": 0.2857143,
+                "y": 0.5
+              },
+              {
+                "x": 0.21428572,
+                "y": 0.5
+              },
+              {
+                "x": 0.21428572,
+                "y": 1.0
+              }
+            ]
+          },
+          "isDirty": false,
+          "lastTransform": {
+            "position": {
+              "x": 100.0,
+              "y": 100.0
+            },
+            "scale": {
+              "x": 256.0,
+              "y": 256.0
+            }
+          }
+        }
+      },
+      {
+        "type": "components.Animation",
+        "properties": {
+          "spriteIndexStart": 0,
+          "spriteIndexEnd": 4,
+          "spriteFlipTime": 0.2,
+          "sprites": {
+            "texture": {
+              "filepath": "assets/spritesheets/spritesheet.png",
+              "texID": 2,
+              "width": 224,
+              "height": 32
+            },
+            "sprites": [
+              {
+                "texture": {
+                  "filepath": "assets/spritesheets/spritesheet.png",
+                  "texID": 2,
+                  "width": 224,
+                  "height": 32
+                },
+                "texCoords": [
+                  {
+                    "x": 0.071428575,
+                    "y": 1.0
+                  },
+                  {
+                    "x": 0.071428575,
+                    "y": 0.5
+                  },
+                  {
+                    "x": 0.0,
+                    "y": 0.5
+                  },
+                  {
+                    "x": 0.0,
+                    "y": 1.0
+                  }
+                ]
+              },
+              {
+                "texture": {
+                  "filepath": "assets/spritesheets/spritesheet.png",
+                  "texID": 2,
+                  "width": 224,
+                  "height": 32
+                },
+                "texCoords": [
+                  {
+                    "x": 0.14285715,
+                    "y": 1.0
+                  },
+                  {
+                    "x": 0.14285715,
+                    "y": 0.5
+                  },
+                  {
+                    "x": 0.071428575,
+                    "y": 0.5
+                  },
+                  {
+                    "x": 0.071428575,
+                    "y": 1.0
+                  }
+                ]
+              },
+              {
+                "texture": {
+                  "filepath": "assets/spritesheets/spritesheet.png",
+                  "texID": 2,
+                  "width": 224,
+                  "height": 32
+                },
+                "texCoords": [
+                  {
+                    "x": 0.21428572,
+                    "y": 1.0
+                  },
+                  {
+                    "x": 0.21428572,
+                    "y": 0.5
+                  },
+                  {
+                    "x": 0.14285715,
+                    "y": 0.5
+                  },
+                  {
+                    "x": 0.14285715,
+                    "y": 1.0
+                  }
+                ]
+              },
+              {
+                "texture": {
+                  "filepath": "assets/spritesheets/spritesheet.png",
+                  "texID": 2,
+                  "width": 224,
+                  "height": 32
+                },
+                "texCoords": [
+                  {
+                    "x": 0.2857143,
+                    "y": 1.0
+                  },
+                  {
+                    "x": 0.2857143,
+                    "y": 0.5
+                  },
+                  {
+                    "x": 0.21428572,
+                    "y": 0.5
+                  },
+                  {
+                    "x": 0.21428572,
+                    "y": 1.0
+                  }
+                ]
+              },
+              {
+                "texture": {
+                  "filepath": "assets/spritesheets/spritesheet.png",
+                  "texID": 2,
+                  "width": 224,
+                  "height": 32
+                },
+                "texCoords": [
+                  {
+                    "x": 0.35714287,
+                    "y": 1.0
+                  },
+                  {
+                    "x": 0.35714287,
+                    "y": 0.5
+                  },
+                  {
+                    "x": 0.2857143,
+                    "y": 0.5
+                  },
+                  {
+                    "x": 0.2857143,
+                    "y": 1.0
+                  }
+                ]
+              },
+              {
+                "texture": {
+                  "filepath": "assets/spritesheets/spritesheet.png",
+                  "texID": 2,
+                  "width": 224,
+                  "height": 32
+                },
+                "texCoords": [
+                  {
+                    "x": 0.42857143,
+                    "y": 1.0
+                  },
+                  {
+                    "x": 0.42857143,
+                    "y": 0.5
+                  },
+                  {
+                    "x": 0.35714287,
+                    "y": 0.5
+                  },
+                  {
+                    "x": 0.35714287,
+                    "y": 1.0
+                  }
+                ]
+              },
+              {
+                "texture": {
+                  "filepath": "assets/spritesheets/spritesheet.png",
+                  "texID": 2,
+                  "width": 224,
+                  "height": 32
+                },
+                "texCoords": [
+                  {
+                    "x": 0.5,
+                    "y": 1.0
+                  },
+                  {
+                    "x": 0.5,
+                    "y": 0.5
+                  },
+                  {
+                    "x": 0.42857143,
+                    "y": 0.5
+                  },
+                  {
+                    "x": 0.42857143,
+                    "y": 1.0
+                  }
+                ]
+              },
+              {
+                "texture": {
+                  "filepath": "assets/spritesheets/spritesheet.png",
+                  "texID": 2,
+                  "width": 224,
+                  "height": 32
+                },
+                "texCoords": [
+                  {
+                    "x": 0.5714286,
+                    "y": 1.0
+                  },
+                  {
+                    "x": 0.5714286,
+                    "y": 0.5
+                  },
+                  {
+                    "x": 0.5,
+                    "y": 0.5
+                  },
+                  {
+                    "x": 0.5,
+                    "y": 1.0
+                  }
+                ]
+              },
+              {
+                "texture": {
+                  "filepath": "assets/spritesheets/spritesheet.png",
+                  "texID": 2,
+                  "width": 224,
+                  "height": 32
+                },
+                "texCoords": [
+                  {
+                    "x": 0.64285713,
+                    "y": 1.0
+                  },
+                  {
+                    "x": 0.64285713,
+                    "y": 0.5
+                  },
+                  {
+                    "x": 0.5714286,
+                    "y": 0.5
+                  },
+                  {
+                    "x": 0.5714286,
+                    "y": 1.0
+                  }
+                ]
+              },
+              {
+                "texture": {
+                  "filepath": "assets/spritesheets/spritesheet.png",
+                  "texID": 2,
+                  "width": 224,
+                  "height": 32
+                },
+                "texCoords": [
+                  {
+                    "x": 0.71428573,
+                    "y": 1.0
+                  },
+                  {
+                    "x": 0.71428573,
+                    "y": 0.5
+                  },
+                  {
+                    "x": 0.64285713,
+                    "y": 0.5
+                  },
+                  {
+                    "x": 0.64285713,
+                    "y": 1.0
+                  }
+                ]
+              },
+              {
+                "texture": {
+                  "filepath": "assets/spritesheets/spritesheet.png",
+                  "texID": 2,
+                  "width": 224,
+                  "height": 32
+                },
+                "texCoords": [
+                  {
+                    "x": 0.78571427,
+                    "y": 1.0
+                  },
+                  {
+                    "x": 0.78571427,
+                    "y": 0.5
+                  },
+                  {
+                    "x": 0.71428573,
+                    "y": 0.5
+                  },
+                  {
+                    "x": 0.71428573,
+                    "y": 1.0
+                  }
+                ]
+              },
+              {
+                "texture": {
+                  "filepath": "assets/spritesheets/spritesheet.png",
+                  "texID": 2,
+                  "width": 224,
+                  "height": 32
+                },
+                "texCoords": [
+                  {
+                    "x": 0.85714287,
+                    "y": 1.0
+                  },
+                  {
+                    "x": 0.85714287,
+                    "y": 0.5
+                  },
+                  {
+                    "x": 0.78571427,
+                    "y": 0.5
+                  },
+                  {
+                    "x": 0.78571427,
+                    "y": 1.0
+                  }
+                ]
+              },
+              {
+                "texture": {
+                  "filepath": "assets/spritesheets/spritesheet.png",
+                  "texID": 2,
+                  "width": 224,
+                  "height": 32
+                },
+                "texCoords": [
+                  {
+                    "x": 0.9285714,
+                    "y": 1.0
+                  },
+                  {
+                    "x": 0.9285714,
+                    "y": 0.5
+                  },
+                  {
+                    "x": 0.85714287,
+                    "y": 0.5
+                  },
+                  {
+                    "x": 0.85714287,
+                    "y": 1.0
+                  }
+                ]
+              },
+              {
+                "texture": {
+                  "filepath": "assets/spritesheets/spritesheet.png",
+                  "texID": 2,
+                  "width": 224,
+                  "height": 32
+                },
+                "texCoords": [
+                  {
+                    "x": 1.0,
+                    "y": 1.0
+                  },
+                  {
+                    "x": 1.0,
+                    "y": 0.5
+                  },
+                  {
+                    "x": 0.9285714,
+                    "y": 0.5
+                  },
+                  {
+                    "x": 0.9285714,
+                    "y": 1.0
+                  }
+                ]
+              },
+              {
+                "texture": {
+                  "filepath": "assets/spritesheets/spritesheet.png",
+                  "texID": 2,
+                  "width": 224,
+                  "height": 32
+                },
+                "texCoords": [
+                  {
+                    "x": 0.071428575,
+                    "y": 0.5
+                  },
+                  {
+                    "x": 0.071428575,
+                    "y": 0.0
+                  },
+                  {
+                    "x": 0.0,
+                    "y": 0.0
+                  },
+                  {
+                    "x": 0.0,
+                    "y": 0.5
+                  }
+                ]
+              },
+              {
+                "texture": {
+                  "filepath": "assets/spritesheets/spritesheet.png",
+                  "texID": 2,
+                  "width": 224,
+                  "height": 32
+                },
+                "texCoords": [
+                  {
+                    "x": 0.14285715,
+                    "y": 0.5
+                  },
+                  {
+                    "x": 0.14285715,
+                    "y": 0.0
+                  },
+                  {
+                    "x": 0.071428575,
+                    "y": 0.0
+                  },
+                  {
+                    "x": 0.071428575,
+                    "y": 0.5
+                  }
+                ]
+              },
+              {
+                "texture": {
+                  "filepath": "assets/spritesheets/spritesheet.png",
+                  "texID": 2,
+                  "width": 224,
+                  "height": 32
+                },
+                "texCoords": [
+                  {
+                    "x": 0.21428572,
+                    "y": 0.5
+                  },
+                  {
+                    "x": 0.21428572,
+                    "y": 0.0
+                  },
+                  {
+                    "x": 0.14285715,
+                    "y": 0.0
+                  },
+                  {
+                    "x": 0.14285715,
+                    "y": 0.5
+                  }
+                ]
+              },
+              {
+                "texture": {
+                  "filepath": "assets/spritesheets/spritesheet.png",
+                  "texID": 2,
+                  "width": 224,
+                  "height": 32
+                },
+                "texCoords": [
+                  {
+                    "x": 0.2857143,
+                    "y": 0.5
+                  },
+                  {
+                    "x": 0.2857143,
+                    "y": 0.0
+                  },
+                  {
+                    "x": 0.21428572,
+                    "y": 0.0
+                  },
+                  {
+                    "x": 0.21428572,
+                    "y": 0.5
+                  }
+                ]
+              },
+              {
+                "texture": {
+                  "filepath": "assets/spritesheets/spritesheet.png",
+                  "texID": 2,
+                  "width": 224,
+                  "height": 32
+                },
+                "texCoords": [
+                  {
+                    "x": 0.35714287,
+                    "y": 0.5
+                  },
+                  {
+                    "x": 0.35714287,
+                    "y": 0.0
+                  },
+                  {
+                    "x": 0.2857143,
+                    "y": 0.0
+                  },
+                  {
+                    "x": 0.2857143,
+                    "y": 0.5
+                  }
+                ]
+              },
+              {
+                "texture": {
+                  "filepath": "assets/spritesheets/spritesheet.png",
+                  "texID": 2,
+                  "width": 224,
+                  "height": 32
+                },
+                "texCoords": [
+                  {
+                    "x": 0.42857143,
+                    "y": 0.5
+                  },
+                  {
+                    "x": 0.42857143,
+                    "y": 0.0
+                  },
+                  {
+                    "x": 0.35714287,
+                    "y": 0.0
+                  },
+                  {
+                    "x": 0.35714287,
+                    "y": 0.5
+                  }
+                ]
+              },
+              {
+                "texture": {
+                  "filepath": "assets/spritesheets/spritesheet.png",
+                  "texID": 2,
+                  "width": 224,
+                  "height": 32
+                },
+                "texCoords": [
+                  {
+                    "x": 0.5,
+                    "y": 0.5
+                  },
+                  {
+                    "x": 0.5,
+                    "y": 0.0
+                  },
+                  {
+                    "x": 0.42857143,
+                    "y": 0.0
+                  },
+                  {
+                    "x": 0.42857143,
+                    "y": 0.5
+                  }
+                ]
+              },
+              {
+                "texture": {
+                  "filepath": "assets/spritesheets/spritesheet.png",
+                  "texID": 2,
+                  "width": 224,
+                  "height": 32
+                },
+                "texCoords": [
+                  {
+                    "x": 0.5714286,
+                    "y": 0.5
+                  },
+                  {
+                    "x": 0.5714286,
+                    "y": 0.0
+                  },
+                  {
+                    "x": 0.5,
+                    "y": 0.0
+                  },
+                  {
+                    "x": 0.5,
+                    "y": 0.5
+                  }
+                ]
+              },
+              {
+                "texture": {
+                  "filepath": "assets/spritesheets/spritesheet.png",
+                  "texID": 2,
+                  "width": 224,
+                  "height": 32
+                },
+                "texCoords": [
+                  {
+                    "x": 0.64285713,
+                    "y": 0.5
+                  },
+                  {
+                    "x": 0.64285713,
+                    "y": 0.0
+                  },
+                  {
+                    "x": 0.5714286,
+                    "y": 0.0
+                  },
+                  {
+                    "x": 0.5714286,
+                    "y": 0.5
+                  }
+                ]
+              },
+              {
+                "texture": {
+                  "filepath": "assets/spritesheets/spritesheet.png",
+                  "texID": 2,
+                  "width": 224,
+                  "height": 32
+                },
+                "texCoords": [
+                  {
+                    "x": 0.71428573,
+                    "y": 0.5
+                  },
+                  {
+                    "x": 0.71428573,
+                    "y": 0.0
+                  },
+                  {
+                    "x": 0.64285713,
+                    "y": 0.0
+                  },
+                  {
+                    "x": 0.64285713,
+                    "y": 0.5
+                  }
+                ]
+              },
+              {
+                "texture": {
+                  "filepath": "assets/spritesheets/spritesheet.png",
+                  "texID": 2,
+                  "width": 224,
+                  "height": 32
+                },
+                "texCoords": [
+                  {
+                    "x": 0.78571427,
+                    "y": 0.5
+                  },
+                  {
+                    "x": 0.78571427,
+                    "y": 0.0
+                  },
+                  {
+                    "x": 0.71428573,
+                    "y": 0.0
+                  },
+                  {
+                    "x": 0.71428573,
+                    "y": 0.5
+                  }
+                ]
+              },
+              {
+                "texture": {
+                  "filepath": "assets/spritesheets/spritesheet.png",
+                  "texID": 2,
+                  "width": 224,
+                  "height": 32
+                },
+                "texCoords": [
+                  {
+                    "x": 0.85714287,
+                    "y": 0.5
+                  },
+                  {
+                    "x": 0.85714287,
+                    "y": 0.0
+                  },
+                  {
+                    "x": 0.78571427,
+                    "y": 0.0
+                  },
+                  {
+                    "x": 0.78571427,
+                    "y": 0.5
+                  }
+                ]
+              }
+            ]
+          },
+          "currentSpriteIndex": 3,
+          "spriteFlipTimeLeft": 0.014285281
+        }
+      }
+    ],
+    "zIndex": -1,
+    "transform": {
+      "position": {
+        "x": 100.0,
+        "y": 100.0
+      },
+      "scale": {
+        "x": 256.0,
+        "y": 256.0
+      }
+    }
+  },
+  {
+    "name": "Object 2",
+    "components": [
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "texture": {
+              "filepath": "assets/spritesheets/spritesheet.png",
+              "texID": 2,
+              "width": 224,
+              "height": 32
+            },
+            "texCoords": [
+              {
+                "x": 0.2857143,
+                "y": 1.0
+              },
+              {
+                "x": 0.2857143,
+                "y": 0.5
+              },
+              {
+                "x": 0.21428572,
+                "y": 0.5
+              },
+              {
+                "x": 0.21428572,
+                "y": 1.0
+              }
+            ]
+          },
+          "isDirty": false,
+          "lastTransform": {
+            "position": {
+              "x": 500.0,
+              "y": 100.0
+            },
+            "scale": {
+              "x": 256.0,
+              "y": 256.0
+            }
+          }
+        }
+      },
+      {
+        "type": "components.Animation",
+        "properties": {
+          "spriteIndexStart": 0,
+          "spriteIndexEnd": 4,
+          "spriteFlipTime": 0.2,
+          "sprites": {
+            "texture": {
+              "filepath": "assets/spritesheets/spritesheet.png",
+              "texID": 2,
+              "width": 224,
+              "height": 32
+            },
+            "sprites": [
+              {
+                "texture": {
+                  "filepath": "assets/spritesheets/spritesheet.png",
+                  "texID": 2,
+                  "width": 224,
+                  "height": 32
+                },
+                "texCoords": [
+                  {
+                    "x": 0.071428575,
+                    "y": 1.0
+                  },
+                  {
+                    "x": 0.071428575,
+                    "y": 0.5
+                  },
+                  {
+                    "x": 0.0,
+                    "y": 0.5
+                  },
+                  {
+                    "x": 0.0,
+                    "y": 1.0
+                  }
+                ]
+              },
+              {
+                "texture": {
+                  "filepath": "assets/spritesheets/spritesheet.png",
+                  "texID": 2,
+                  "width": 224,
+                  "height": 32
+                },
+                "texCoords": [
+                  {
+                    "x": 0.14285715,
+                    "y": 1.0
+                  },
+                  {
+                    "x": 0.14285715,
+                    "y": 0.5
+                  },
+                  {
+                    "x": 0.071428575,
+                    "y": 0.5
+                  },
+                  {
+                    "x": 0.071428575,
+                    "y": 1.0
+                  }
+                ]
+              },
+              {
+                "texture": {
+                  "filepath": "assets/spritesheets/spritesheet.png",
+                  "texID": 2,
+                  "width": 224,
+                  "height": 32
+                },
+                "texCoords": [
+                  {
+                    "x": 0.21428572,
+                    "y": 1.0
+                  },
+                  {
+                    "x": 0.21428572,
+                    "y": 0.5
+                  },
+                  {
+                    "x": 0.14285715,
+                    "y": 0.5
+                  },
+                  {
+                    "x": 0.14285715,
+                    "y": 1.0
+                  }
+                ]
+              },
+              {
+                "texture": {
+                  "filepath": "assets/spritesheets/spritesheet.png",
+                  "texID": 2,
+                  "width": 224,
+                  "height": 32
+                },
+                "texCoords": [
+                  {
+                    "x": 0.2857143,
+                    "y": 1.0
+                  },
+                  {
+                    "x": 0.2857143,
+                    "y": 0.5
+                  },
+                  {
+                    "x": 0.21428572,
+                    "y": 0.5
+                  },
+                  {
+                    "x": 0.21428572,
+                    "y": 1.0
+                  }
+                ]
+              },
+              {
+                "texture": {
+                  "filepath": "assets/spritesheets/spritesheet.png",
+                  "texID": 2,
+                  "width": 224,
+                  "height": 32
+                },
+                "texCoords": [
+                  {
+                    "x": 0.35714287,
+                    "y": 1.0
+                  },
+                  {
+                    "x": 0.35714287,
+                    "y": 0.5
+                  },
+                  {
+                    "x": 0.2857143,
+                    "y": 0.5
+                  },
+                  {
+                    "x": 0.2857143,
+                    "y": 1.0
+                  }
+                ]
+              },
+              {
+                "texture": {
+                  "filepath": "assets/spritesheets/spritesheet.png",
+                  "texID": 2,
+                  "width": 224,
+                  "height": 32
+                },
+                "texCoords": [
+                  {
+                    "x": 0.42857143,
+                    "y": 1.0
+                  },
+                  {
+                    "x": 0.42857143,
+                    "y": 0.5
+                  },
+                  {
+                    "x": 0.35714287,
+                    "y": 0.5
+                  },
+                  {
+                    "x": 0.35714287,
+                    "y": 1.0
+                  }
+                ]
+              },
+              {
+                "texture": {
+                  "filepath": "assets/spritesheets/spritesheet.png",
+                  "texID": 2,
+                  "width": 224,
+                  "height": 32
+                },
+                "texCoords": [
+                  {
+                    "x": 0.5,
+                    "y": 1.0
+                  },
+                  {
+                    "x": 0.5,
+                    "y": 0.5
+                  },
+                  {
+                    "x": 0.42857143,
+                    "y": 0.5
+                  },
+                  {
+                    "x": 0.42857143,
+                    "y": 1.0
+                  }
+                ]
+              },
+              {
+                "texture": {
+                  "filepath": "assets/spritesheets/spritesheet.png",
+                  "texID": 2,
+                  "width": 224,
+                  "height": 32
+                },
+                "texCoords": [
+                  {
+                    "x": 0.5714286,
+                    "y": 1.0
+                  },
+                  {
+                    "x": 0.5714286,
+                    "y": 0.5
+                  },
+                  {
+                    "x": 0.5,
+                    "y": 0.5
+                  },
+                  {
+                    "x": 0.5,
+                    "y": 1.0
+                  }
+                ]
+              },
+              {
+                "texture": {
+                  "filepath": "assets/spritesheets/spritesheet.png",
+                  "texID": 2,
+                  "width": 224,
+                  "height": 32
+                },
+                "texCoords": [
+                  {
+                    "x": 0.64285713,
+                    "y": 1.0
+                  },
+                  {
+                    "x": 0.64285713,
+                    "y": 0.5
+                  },
+                  {
+                    "x": 0.5714286,
+                    "y": 0.5
+                  },
+                  {
+                    "x": 0.5714286,
+                    "y": 1.0
+                  }
+                ]
+              },
+              {
+                "texture": {
+                  "filepath": "assets/spritesheets/spritesheet.png",
+                  "texID": 2,
+                  "width": 224,
+                  "height": 32
+                },
+                "texCoords": [
+                  {
+                    "x": 0.71428573,
+                    "y": 1.0
+                  },
+                  {
+                    "x": 0.71428573,
+                    "y": 0.5
+                  },
+                  {
+                    "x": 0.64285713,
+                    "y": 0.5
+                  },
+                  {
+                    "x": 0.64285713,
+                    "y": 1.0
+                  }
+                ]
+              },
+              {
+                "texture": {
+                  "filepath": "assets/spritesheets/spritesheet.png",
+                  "texID": 2,
+                  "width": 224,
+                  "height": 32
+                },
+                "texCoords": [
+                  {
+                    "x": 0.78571427,
+                    "y": 1.0
+                  },
+                  {
+                    "x": 0.78571427,
+                    "y": 0.5
+                  },
+                  {
+                    "x": 0.71428573,
+                    "y": 0.5
+                  },
+                  {
+                    "x": 0.71428573,
+                    "y": 1.0
+                  }
+                ]
+              },
+              {
+                "texture": {
+                  "filepath": "assets/spritesheets/spritesheet.png",
+                  "texID": 2,
+                  "width": 224,
+                  "height": 32
+                },
+                "texCoords": [
+                  {
+                    "x": 0.85714287,
+                    "y": 1.0
+                  },
+                  {
+                    "x": 0.85714287,
+                    "y": 0.5
+                  },
+                  {
+                    "x": 0.78571427,
+                    "y": 0.5
+                  },
+                  {
+                    "x": 0.78571427,
+                    "y": 1.0
+                  }
+                ]
+              },
+              {
+                "texture": {
+                  "filepath": "assets/spritesheets/spritesheet.png",
+                  "texID": 2,
+                  "width": 224,
+                  "height": 32
+                },
+                "texCoords": [
+                  {
+                    "x": 0.9285714,
+                    "y": 1.0
+                  },
+                  {
+                    "x": 0.9285714,
+                    "y": 0.5
+                  },
+                  {
+                    "x": 0.85714287,
+                    "y": 0.5
+                  },
+                  {
+                    "x": 0.85714287,
+                    "y": 1.0
+                  }
+                ]
+              },
+              {
+                "texture": {
+                  "filepath": "assets/spritesheets/spritesheet.png",
+                  "texID": 2,
+                  "width": 224,
+                  "height": 32
+                },
+                "texCoords": [
+                  {
+                    "x": 1.0,
+                    "y": 1.0
+                  },
+                  {
+                    "x": 1.0,
+                    "y": 0.5
+                  },
+                  {
+                    "x": 0.9285714,
+                    "y": 0.5
+                  },
+                  {
+                    "x": 0.9285714,
+                    "y": 1.0
+                  }
+                ]
+              },
+              {
+                "texture": {
+                  "filepath": "assets/spritesheets/spritesheet.png",
+                  "texID": 2,
+                  "width": 224,
+                  "height": 32
+                },
+                "texCoords": [
+                  {
+                    "x": 0.071428575,
+                    "y": 0.5
+                  },
+                  {
+                    "x": 0.071428575,
+                    "y": 0.0
+                  },
+                  {
+                    "x": 0.0,
+                    "y": 0.0
+                  },
+                  {
+                    "x": 0.0,
+                    "y": 0.5
+                  }
+                ]
+              },
+              {
+                "texture": {
+                  "filepath": "assets/spritesheets/spritesheet.png",
+                  "texID": 2,
+                  "width": 224,
+                  "height": 32
+                },
+                "texCoords": [
+                  {
+                    "x": 0.14285715,
+                    "y": 0.5
+                  },
+                  {
+                    "x": 0.14285715,
+                    "y": 0.0
+                  },
+                  {
+                    "x": 0.071428575,
+                    "y": 0.0
+                  },
+                  {
+                    "x": 0.071428575,
+                    "y": 0.5
+                  }
+                ]
+              },
+              {
+                "texture": {
+                  "filepath": "assets/spritesheets/spritesheet.png",
+                  "texID": 2,
+                  "width": 224,
+                  "height": 32
+                },
+                "texCoords": [
+                  {
+                    "x": 0.21428572,
+                    "y": 0.5
+                  },
+                  {
+                    "x": 0.21428572,
+                    "y": 0.0
+                  },
+                  {
+                    "x": 0.14285715,
+                    "y": 0.0
+                  },
+                  {
+                    "x": 0.14285715,
+                    "y": 0.5
+                  }
+                ]
+              },
+              {
+                "texture": {
+                  "filepath": "assets/spritesheets/spritesheet.png",
+                  "texID": 2,
+                  "width": 224,
+                  "height": 32
+                },
+                "texCoords": [
+                  {
+                    "x": 0.2857143,
+                    "y": 0.5
+                  },
+                  {
+                    "x": 0.2857143,
+                    "y": 0.0
+                  },
+                  {
+                    "x": 0.21428572,
+                    "y": 0.0
+                  },
+                  {
+                    "x": 0.21428572,
+                    "y": 0.5
+                  }
+                ]
+              },
+              {
+                "texture": {
+                  "filepath": "assets/spritesheets/spritesheet.png",
+                  "texID": 2,
+                  "width": 224,
+                  "height": 32
+                },
+                "texCoords": [
+                  {
+                    "x": 0.35714287,
+                    "y": 0.5
+                  },
+                  {
+                    "x": 0.35714287,
+                    "y": 0.0
+                  },
+                  {
+                    "x": 0.2857143,
+                    "y": 0.0
+                  },
+                  {
+                    "x": 0.2857143,
+                    "y": 0.5
+                  }
+                ]
+              },
+              {
+                "texture": {
+                  "filepath": "assets/spritesheets/spritesheet.png",
+                  "texID": 2,
+                  "width": 224,
+                  "height": 32
+                },
+                "texCoords": [
+                  {
+                    "x": 0.42857143,
+                    "y": 0.5
+                  },
+                  {
+                    "x": 0.42857143,
+                    "y": 0.0
+                  },
+                  {
+                    "x": 0.35714287,
+                    "y": 0.0
+                  },
+                  {
+                    "x": 0.35714287,
+                    "y": 0.5
+                  }
+                ]
+              },
+              {
+                "texture": {
+                  "filepath": "assets/spritesheets/spritesheet.png",
+                  "texID": 2,
+                  "width": 224,
+                  "height": 32
+                },
+                "texCoords": [
+                  {
+                    "x": 0.5,
+                    "y": 0.5
+                  },
+                  {
+                    "x": 0.5,
+                    "y": 0.0
+                  },
+                  {
+                    "x": 0.42857143,
+                    "y": 0.0
+                  },
+                  {
+                    "x": 0.42857143,
+                    "y": 0.5
+                  }
+                ]
+              },
+              {
+                "texture": {
+                  "filepath": "assets/spritesheets/spritesheet.png",
+                  "texID": 2,
+                  "width": 224,
+                  "height": 32
+                },
+                "texCoords": [
+                  {
+                    "x": 0.5714286,
+                    "y": 0.5
+                  },
+                  {
+                    "x": 0.5714286,
+                    "y": 0.0
+                  },
+                  {
+                    "x": 0.5,
+                    "y": 0.0
+                  },
+                  {
+                    "x": 0.5,
+                    "y": 0.5
+                  }
+                ]
+              },
+              {
+                "texture": {
+                  "filepath": "assets/spritesheets/spritesheet.png",
+                  "texID": 2,
+                  "width": 224,
+                  "height": 32
+                },
+                "texCoords": [
+                  {
+                    "x": 0.64285713,
+                    "y": 0.5
+                  },
+                  {
+                    "x": 0.64285713,
+                    "y": 0.0
+                  },
+                  {
+                    "x": 0.5714286,
+                    "y": 0.0
+                  },
+                  {
+                    "x": 0.5714286,
+                    "y": 0.5
+                  }
+                ]
+              },
+              {
+                "texture": {
+                  "filepath": "assets/spritesheets/spritesheet.png",
+                  "texID": 2,
+                  "width": 224,
+                  "height": 32
+                },
+                "texCoords": [
+                  {
+                    "x": 0.71428573,
+                    "y": 0.5
+                  },
+                  {
+                    "x": 0.71428573,
+                    "y": 0.0
+                  },
+                  {
+                    "x": 0.64285713,
+                    "y": 0.0
+                  },
+                  {
+                    "x": 0.64285713,
+                    "y": 0.5
+                  }
+                ]
+              },
+              {
+                "texture": {
+                  "filepath": "assets/spritesheets/spritesheet.png",
+                  "texID": 2,
+                  "width": 224,
+                  "height": 32
+                },
+                "texCoords": [
+                  {
+                    "x": 0.78571427,
+                    "y": 0.5
+                  },
+                  {
+                    "x": 0.78571427,
+                    "y": 0.0
+                  },
+                  {
+                    "x": 0.71428573,
+                    "y": 0.0
+                  },
+                  {
+                    "x": 0.71428573,
+                    "y": 0.5
+                  }
+                ]
+              },
+              {
+                "texture": {
+                  "filepath": "assets/spritesheets/spritesheet.png",
+                  "texID": 2,
+                  "width": 224,
+                  "height": 32
+                },
+                "texCoords": [
+                  {
+                    "x": 0.85714287,
+                    "y": 0.5
+                  },
+                  {
+                    "x": 0.85714287,
+                    "y": 0.0
+                  },
+                  {
+                    "x": 0.78571427,
+                    "y": 0.0
+                  },
+                  {
+                    "x": 0.78571427,
+                    "y": 0.5
+                  }
+                ]
+              }
+            ]
+          },
+          "currentSpriteIndex": 3,
+          "spriteFlipTimeLeft": 0.014285281
+        }
+      }
+    ],
+    "zIndex": 4,
+    "transform": {
+      "position": {
+        "x": 500.0,
+        "y": 100.0
+      },
+      "scale": {
+        "x": 256.0,
+        "y": 256.0
+      }
+    }
+  }
+]

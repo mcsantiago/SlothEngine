@@ -1,16 +1,11 @@
 package slothengine;
 
 import components.Animation;
-import components.Sprite;
 import components.SpriteRenderer;
 import components.Spritesheet;
 import imgui.ImGui;
 import org.joml.Vector2f;
-import org.joml.Vector4f;
 import util.AssetPool;
-
-import static org.lwjgl.glfw.GLFW.*;
-import static org.lwjgl.opengl.GL30.glGenVertexArrays;
 
 public class LevelEditorScene extends Scene {
 
@@ -23,24 +18,42 @@ public class LevelEditorScene extends Scene {
   @Override
   public void init() {
     super.init();
+
     loadResources();
+    load();
     this.camera = new Camera(new Vector2f());
 
-    Spritesheet sprites = AssetPool.getSpritesheet("assets/spritesheets/spritesheet.png");
+    if (this.levelLoaded) return;
 
+    Spritesheet sprites = AssetPool.getSpritesheet("assets/spritesheets/spritesheet.png");
     obj1 = new GameObject("Object 1",
             new Transform(new Vector2f(100, 100), new Vector2f(256, 256)), -1);
-    obj1.addComponent(new SpriteRenderer(sprites.getSprite(0)));
-    obj1.addComponent(new Animation(0, 4, 0.2f, sprites));
+    SpriteRenderer obj1SpriteRenderer = new SpriteRenderer();
+    obj1SpriteRenderer.setSprite(sprites.getSprite(0));
+    Animation obj1Animation = new Animation();
+    obj1Animation.setSpriteIndexStart(0);
+    obj1Animation.setSpriteIndexEnd(4);
+    obj1Animation.setSpriteFlipTime(0.2f);
+    obj1Animation.setSprites(sprites);
+    obj1.addComponent(obj1SpriteRenderer);
+    obj1.addComponent(obj1Animation);
     addGameObject(obj1);
 
     obj2 = new GameObject("Object 2",
-            new Transform(new Vector2f(100, 100), new Vector2f(256, 256)), 4);
-    obj2.addComponent(new SpriteRenderer(sprites.getSprite(0)));
-    obj2.addComponent(new Animation(0, 4, 0.2f, sprites));
+            new Transform(new Vector2f(500, 100), new Vector2f(256, 256)), 4);
+    SpriteRenderer obj2SpriteRenderer = new SpriteRenderer();
+    obj2SpriteRenderer.setSprite(sprites.getSprite(0));
+    obj2.addComponent(obj2SpriteRenderer);
+    Animation obj2Animation = new Animation();
+    obj2Animation.setSpriteIndexStart(0);
+    obj2Animation.setSpriteIndexEnd(4);
+    obj2Animation.setSpriteFlipTime(0.2f);
+    obj2Animation.setSprites(sprites);
+    obj2.addComponent(obj2Animation);
     addGameObject(obj2);
 
     this.activeGameObject = obj1; // Temporary measure
+
   }
 
   private void loadResources() {
@@ -51,8 +64,6 @@ public class LevelEditorScene extends Scene {
 
   @Override
   public void update(float deltaTime) {
-    obj1.transform.position.x += 100f * deltaTime;
-
     for (GameObject go : this.gameObjects) {
       go.update(deltaTime);
     }
@@ -62,8 +73,6 @@ public class LevelEditorScene extends Scene {
 
   @Override
   public void imgui() {
-      ImGui.begin("Test window");
-      ImGui.text("Some random text");
-      ImGui.end();
+
   }
 }
