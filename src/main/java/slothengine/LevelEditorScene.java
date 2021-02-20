@@ -1,6 +1,7 @@
 package slothengine;
 
 import components.Animation;
+import components.RigidBody;
 import components.SpriteRenderer;
 import components.Spritesheet;
 import imgui.ImGui;
@@ -20,10 +21,12 @@ public class LevelEditorScene extends Scene {
     super.init();
 
     loadResources();
-    load();
     this.camera = new Camera(new Vector2f());
 
-    if (this.levelLoaded) return;
+    if (this.levelLoaded) {
+      this.activeGameObject = gameObjects.get(0);
+      return;
+    }
 
     Spritesheet sprites = AssetPool.getSpritesheet("assets/spritesheets/spritesheet.png");
     obj1 = new GameObject("Object 1",
@@ -37,6 +40,7 @@ public class LevelEditorScene extends Scene {
     obj1Animation.setSprites(sprites);
     obj1.addComponent(obj1SpriteRenderer);
     obj1.addComponent(obj1Animation);
+    obj1.addComponent(new RigidBody());
     addGameObject(obj1);
 
     obj2 = new GameObject("Object 2",
@@ -50,6 +54,7 @@ public class LevelEditorScene extends Scene {
     obj2Animation.setSpriteFlipTime(0.2f);
     obj2Animation.setSprites(sprites);
     obj2.addComponent(obj2Animation);
+    obj2.addComponent(new RigidBody());
     addGameObject(obj2);
 
     this.activeGameObject = obj1; // Temporary measure

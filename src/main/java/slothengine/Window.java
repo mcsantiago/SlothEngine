@@ -43,6 +43,7 @@ public class Window {
         break;
     }
 
+    activeScene.load();
     activeScene.init();
     activeScene.start();
   }
