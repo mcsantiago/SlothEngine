@@ -7,13 +7,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Spritesheet {
-    private Texture texture;
-    private List<Sprite> sprites;
+    private final List<Sprite> sprites;
 
     public Spritesheet(Texture texture, int spriteWidth, int spriteHeight, int numSprites, int spacingX, int spacingY) {
         this.sprites = new ArrayList<>();
 
-        this.texture = texture;
         int currentX = 0;
         int currentY = texture.getHeight() - spriteHeight;
         for (int i = 0; i < numSprites; i++) {
@@ -31,8 +29,10 @@ public class Spritesheet {
             };
 
             Sprite sprite = new Sprite();
-            sprite.setTexture(this.texture);
+            sprite.setTexture(texture);
             sprite.setTexCoords(texCoords);
+            sprite.setWidth(spriteWidth);
+            sprite.setHeight(spriteHeight);
             this.sprites.add(sprite);
 
             currentX += spriteWidth + spacingX;
@@ -45,5 +45,9 @@ public class Spritesheet {
 
     public Sprite getSprite(int index) {
         return sprites.get(index);
+    }
+
+    public int size() {
+        return sprites.size();
     }
 }

@@ -13,89 +13,90 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Scene {
-  protected Renderer renderer = new Renderer();
-  protected Camera camera;
-  private boolean isRunning = false;
-  protected List<GameObject> gameObjects = new ArrayList<>();
-  protected GameObject activeGameObject = null;
-  protected boolean levelLoaded = false;
+    protected Renderer renderer = new Renderer();
+    protected Camera camera;
+    private boolean isRunning = false;
+    protected List<GameObject> gameObjects = new ArrayList<>();
+    protected GameObject activeGameObject = null;
+    protected boolean levelLoaded = false;
 
-  public Scene() { }
+    public Scene() { }
 
-  public abstract void update(float deltaTime);
+    public abstract void update(float deltaTime);
 
-  public void init() {}
+    public void init() {}
 
-  public void start() {
-    for (GameObject go : gameObjects) {
-      go.start();
-      this.renderer.add(go);
-    }
-    isRunning = true;
-  }
-
-  public void addGameObject(GameObject go) {
-    gameObjects.add(go);
-    if (isRunning) {
-      go.start();
-      this.renderer.add(go);
-    }
-  }
-
-  public Camera getCamera() {
-    return camera;
-  }
-
-  public void sceneImgui() {
-    if (activeGameObject != null) {
-      ImGui.begin("Inspector");
-      activeGameObject.imgui();
-      ImGui.end();
+    public void start() {
+        for (GameObject go : gameObjects) {
+            go.start();
+            this.renderer.add(go);
+        }
+        isRunning = true;
     }
 
-    imgui();
-  }
-
-  public void imgui() {
-
-  }
-
-  public void saveExit() {
-    Gson gson = new GsonBuilder()
-            .setPrettyPrinting()
-            .registerTypeAdapter(Component.class, new ComponentTypeAdapter())
-            .registerTypeAdapter(GameObject.class, new GameObjectTypeAdapter())
-            .create();
-
-    try {
-        Files.writeString(Paths.get("level.json"), gson.toJson(gameObjects));
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
-  }
-
-  public void load() {
-    Gson gson = new GsonBuilder()
-            .setPrettyPrinting()
-            .registerTypeAdapter(Component.class, new ComponentTypeAdapter())
-            .registerTypeAdapter(GameObject.class, new GameObjectTypeAdapter())
-            .create();
-    String inFile = "";
-    try {
-      inFile = new String(Files.readAllBytes(Paths.get("level.json")));
-    } catch (IOException e) {
-      e.printStackTrace(System.err);
-      return;
+    public void addGameObject(GameObject go) {
+        gameObjects.add(go);
+        if (isRunning) {
+            go.start();
+            this.renderer.add(go);
+        }
     }
 
-    try {
-      GameObject[] objs = gson.fromJson(inFile, GameObject[].class);
-      for (GameObject obj : objs) {
-        addGameObject(obj);
-      }
-      this.levelLoaded = true;
-    } catch (JsonSyntaxException e) {
-      e.printStackTrace(System.err);
+    public Camera getCamera() {
+        return camera;
     }
-  }
+
+    public void sceneImgui() {
+        if (activeGameObject != null) {
+            ImGui.begin("Inspector");
+            activeGameObject.imgui();
+            ImGui.end();
+        }
+
+        imgui();
+    }
+
+    public void imgui() {
+
+    }
+
+    public void saveExit() {
+        Gson gson = new GsonBuilder()
+                .setPrettyPrinting()
+                .registerTypeAdapter(Component.class, new ComponentTypeAdapter())
+                .registerTypeAdapter(GameObject.class, new GameObjectTypeAdapter())
+                .create();
+
+        try {
+            Files.writeString(Paths.get("level.json"), gson.toJson(gameObjects));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void load() {
+        Gson gson = new GsonBuilder()
+                .setPrettyPrinting()
+                .registerTypeAdapter(Component.class, new ComponentTypeAdapter())
+                .registerTypeAdapter(GameObject.class, new GameObjectTypeAdapter())
+                .create();
+        String inFile = "";
+        try {
+            inFile = new String(Files.readAllBytes(Paths.get("level.json")));
+        } catch (IOException e) {
+            e.printStackTrace(System.err);
+        }
+
+        if (!inFile.equals("")) {
+            try {
+                GameObject[] objs = gson.fromJson(inFile, GameObject[].class);
+                for (GameObject obj : objs) {
+                    addGameObject(obj);
+                }
+                this.levelLoaded = true;
+            } catch (JsonSyntaxException e) {
+                e.printStackTrace(System.err);
+            }
+        }
+    }
 }
