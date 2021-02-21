@@ -5,6 +5,7 @@ import org.lwjgl.glfw.GLFWErrorCallback;
 import org.lwjgl.glfw.GLFWVidMode;
 import org.lwjgl.opengl.GL;
 import org.lwjgl.system.MemoryStack;
+import renderer.DebugDraw;
 import scenes.LevelEditorScene;
 import scenes.LevelScene;
 import scenes.Scene;
@@ -163,10 +164,13 @@ public class Window {
             // invoked during this call.
             glfwPollEvents();
 
+            DebugDraw.beginFrame();
+
             glClearColor(r, g, b, a);
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // clear the framebuffer
 
             if (deltaTime >= 0) {
+                DebugDraw.draw();
                 activeScene.update(deltaTime);
             }
 

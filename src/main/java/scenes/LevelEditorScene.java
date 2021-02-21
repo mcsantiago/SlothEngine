@@ -4,6 +4,8 @@ import components.*;
 import imgui.ImGui;
 import imgui.ImVec2;
 import org.joml.Vector2f;
+import org.joml.Vector3f;
+import renderer.DebugDraw;
 import slothengine.*;
 import util.AssetPool;
 
@@ -24,6 +26,8 @@ public class LevelEditorScene extends Scene {
         loadResources();
         sprites = AssetPool.getSpritesheet("assets/spritesheets/spritesheet.png");
         decorationsAndBlocks = AssetPool.getSpritesheet("assets/spritesheets/decorationsAndBlocks.png");
+
+        DebugDraw.addLine2D(new Vector2f(0, 0), new Vector2f(800, 800), new Vector3f(1, 1, 1), 120000000);
         this.camera = new Camera(new Vector2f());
 
         if (this.levelLoaded) {
@@ -60,10 +64,10 @@ public class LevelEditorScene extends Scene {
         addGameObject(obj2);
 
         this.activeGameObject = obj1; // Temporary measure
+
     }
 
     private void loadResources() {
-        AssetPool.getShader("assets/shaders/default.glsl");
         AssetPool.addSpritesheet("assets/spritesheets/spritesheet.png",
                 new Spritesheet(AssetPool.getTexture("assets/spritesheets/spritesheet.png"),
                         16, 16, 26, 0, 0));
