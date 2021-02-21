@@ -62,7 +62,6 @@ public class LevelEditorScene extends Scene {
     }
 
     private void loadResources() {
-        // TODO: FIX THE TEXTURE LOADING
         AssetPool.getShader("assets/shaders/default.glsl");
         AssetPool.addSpritesheet("assets/spritesheets/spritesheet.png",
                 new Spritesheet(AssetPool.getTexture("assets/spritesheets/spritesheet.png"),
@@ -74,6 +73,8 @@ public class LevelEditorScene extends Scene {
 
     @Override
     public void update(float deltaTime) {
+        MouseListener.getOrthoX();
+
         for (GameObject go : this.gameObjects) {
             go.update(deltaTime);
         }
