@@ -1,7 +1,6 @@
 package slothengine;
 
-import org.joml.Vector2f;
-import org.lwjgl.system.CallbackI;
+import components.Component;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,15 +1,14 @@
-package slothengine;
+package scenes;
 
 import components.*;
 import imgui.ImGui;
 import imgui.ImVec2;
 import org.joml.Vector2f;
+import slothengine.*;
 import util.AssetPool;
 
 public class LevelEditorScene extends Scene {
 
-    private GameObject obj1;
-    private GameObject obj2;
     private Spritesheet sprites;
     private Spritesheet decorationsAndBlocks;
 
@@ -30,7 +29,7 @@ public class LevelEditorScene extends Scene {
             return;
         }
 
-        obj1 = new GameObject("Object 1",
+        GameObject obj1 = new GameObject("Object 1",
                 new Transform(new Vector2f(100, 100), new Vector2f(256, 256)), -1);
         SpriteRenderer obj1SpriteRenderer = new SpriteRenderer();
         obj1SpriteRenderer.setSprite(sprites.getSprite(0));
@@ -44,7 +43,7 @@ public class LevelEditorScene extends Scene {
         obj1.addComponent(new RigidBody());
         addGameObject(obj1);
 
-        obj2 = new GameObject("Object 2",
+        GameObject obj2 = new GameObject("Object 2",
                 new Transform(new Vector2f(500, 100), new Vector2f(256, 256)), 4);
         SpriteRenderer obj2SpriteRenderer = new SpriteRenderer();
         obj2SpriteRenderer.setSprite(sprites.getSprite(0));

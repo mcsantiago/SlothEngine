@@ -1,7 +1,6 @@
 package components;
 
 import lombok.Setter;
-import slothengine.Component;
 
 public class Animation extends Component {
     @Setter private int spriteIndexStart;

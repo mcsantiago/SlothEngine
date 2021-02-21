@@ -5,7 +5,6 @@ import lombok.Getter;
 import org.joml.Vector2f;
 import org.joml.Vector4f;
 import renderer.Texture;
-import slothengine.Component;
 import slothengine.Transform;
 
 public class SpriteRenderer extends Component {

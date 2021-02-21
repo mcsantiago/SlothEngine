@@ -1,7 +1,5 @@
 package components;
 
-import slothengine.Component;
-
 public class FontRenderer extends Component {
 
     @Override

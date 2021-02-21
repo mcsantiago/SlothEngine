@@ -103,7 +103,7 @@ public class MouseListener {
         float currentX = getxPos();
         currentX = ((currentX / Window.getWidth())) * 2.0f - 1.0f;
         Vector4f tmp = new Vector4f(currentX, 0, 0, 1);
-        tmp.mul(Window.getActiveScene().camera.getInverseProjection()).mul(Window.getActiveScene().camera.getInverseView());
+        tmp.mul(Window.getActiveScene().getCamera().getInverseProjection()).mul(Window.getActiveScene().getCamera().getInverseView());
 
         currentX = tmp.x;
         System.out.println(currentX);
@@ -114,7 +114,7 @@ public class MouseListener {
         float currentY = getyPos();
         currentY = ((currentY / Window.getHeight())) * 2.0f - 1.0f;
         Vector4f tmp = new Vector4f(0, currentY, 0, 1);
-        tmp.mul(Window.getActiveScene().camera.getInverseProjection()).mul(Window.getActiveScene().camera.getInverseView());
+        tmp.mul(Window.getActiveScene().getCamera().getInverseProjection()).mul(Window.getActiveScene().getCamera().getInverseView());
 
         currentY = tmp.y;
         System.out.println(currentY);

@@ -1,10 +1,15 @@
-package slothengine;
+package scenes;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonSyntaxException;
+import components.Component;
 import imgui.ImGui;
 import renderer.Renderer;
+import components.ComponentTypeAdapter;
+import slothengine.Camera;
+import slothengine.GameObject;
+import slothengine.GameObjectTypeAdapter;
 
 import java.io.IOException;
 import java.nio.file.Files;

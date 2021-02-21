@@ -1,6 +1,6 @@
-package slothengine;
+package scenes;
 
-public class LevelScene extends Scene{
+public class LevelScene extends Scene {
     public LevelScene() {
         System.out.println("Loaded Level Scene");
     }

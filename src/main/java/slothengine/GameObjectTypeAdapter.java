@@ -1,6 +1,9 @@
 package slothengine;
 
 import com.google.gson.*;
+import components.Component;
+import slothengine.GameObject;
+import slothengine.Transform;
 
 import java.lang.reflect.Type;
 
