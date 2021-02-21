@@ -19,7 +19,8 @@ import static org.lwjgl.system.MemoryStack.stackPush;
 import static org.lwjgl.system.MemoryUtil.NULL;
 
 public class Window {
-    private int width, height;
+    private final int width;
+    private final int height;
     private final String title;
     private long windowId;
     private ImGuiLayer imGuiLayer;
@@ -107,6 +108,7 @@ public class Window {
         // Create the window
         windowId = glfwCreateWindow(this.width, this.height, this.title, NULL, NULL);
         if (windowId == NULL) throw new RuntimeException("Failed to create the GLFW window");
+        glfwMaximizeWindow(windowId);
 
         glfwSetCursorPosCallback(windowId, MouseListener::mousePosCallback);
         glfwSetMouseButtonCallback(windowId, MouseListener::mouseButtonCallback);
