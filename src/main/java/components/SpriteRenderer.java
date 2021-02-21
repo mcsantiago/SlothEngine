@@ -13,13 +13,14 @@ public class SpriteRenderer extends Component {
     private Vector4f color = new Vector4f(1, 1, 1, 1);
     @Getter
     private Sprite sprite = new Sprite();
-    private boolean isDirty = true;
+    private boolean isDirty;
     private Transform lastTransform;
 
     @Override
     public void start() {
         super.start();
         this.lastTransform = gameObject.transform.copy();
+        this.isDirty = true;
     }
 
     @Override

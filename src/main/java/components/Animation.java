@@ -8,8 +8,8 @@ public class Animation extends Component {
     @Setter private float spriteFlipTime;
     @Setter private Spritesheet sprites;
 
-    private int currentSpriteIndex;
-    private float spriteFlipTimeLeft;
+    @Setter private int currentSpriteIndex;
+    @Setter private float spriteFlipTimeLeft;
 
     @Override
     public void update(float deltaTime) {

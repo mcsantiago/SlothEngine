@@ -46,7 +46,7 @@ public class Window {
                 break;
         }
 
-//    activeScene.load();
+        activeScene.load();
         activeScene.init();
         activeScene.start();
     }
@@ -182,6 +182,6 @@ public class Window {
             deltaTime = endTime - beginTime;
             beginTime = endTime;
         }
-//    activeScene.saveExit();
+        activeScene.saveExit();
     }
 }
