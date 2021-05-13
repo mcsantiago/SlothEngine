@@ -4,17 +4,18 @@ import components.*;
 import imgui.ImGui;
 import imgui.ImVec2;
 import org.joml.Vector2f;
-import org.joml.Vector3f;
-import renderer.DebugDraw;
 import slothengine.*;
 import util.AssetPool;
+import util.Vector2DUtil;
+
+import static org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT;
 
 public class LevelEditorScene extends Scene {
 
     private Spritesheet sprites;
     private Spritesheet decorationsAndBlocks;
 
-    private MouseControls mouseControls = new MouseControls();
+    private final MouseControls mouseControls = new MouseControls();
 
     public LevelEditorScene() {
     }
@@ -27,14 +28,32 @@ public class LevelEditorScene extends Scene {
         sprites = AssetPool.getSpritesheet("assets/spritesheets/spritesheet.png");
         decorationsAndBlocks = AssetPool.getSpritesheet("assets/spritesheets/decorationsAndBlocks.png");
 
-        DebugDraw.addLine2D(new Vector2f(0, 0), new Vector2f(800, 800), new Vector3f(1, 1, 1), 120000000);
         this.camera = new Camera(new Vector2f());
 
         if (this.levelLoaded) {
             this.activeGameObject = gameObjects.get(0);
-            return;
         }
 
+//
+//        GameObject obj2 = new GameObject("Object 2",
+//                new Transform(new Vector2f(500, 100), new Vector2f(256, 256)), 4);
+//        SpriteRenderer obj2SpriteRenderer = new SpriteRenderer();
+//        obj2SpriteRenderer.setSprite(sprites.getSprite(0));
+//        Animation obj2Animation = new Animation();
+//        obj2Animation.setSpriteIndexStart(0);
+//        obj2Animation.setSpriteIndexEnd(4);
+//        obj2Animation.setSpriteFlipTime(0.2f);
+//        obj2Animation.setSprites(sprites);
+//        obj2.addComponent(obj2SpriteRenderer);
+//        obj2.addComponent(obj2Animation);
+//        obj2.addComponent(new RigidBody());
+//        addGameObject(obj2);
+//
+//        this.activeGameObject = obj1; // Temporary measure
+//
+    }
+
+    private void createMarioObject() {
         GameObject obj1 = new GameObject("Object 1",
                 new Transform(new Vector2f(100, 100), new Vector2f(256, 256)), -1);
         SpriteRenderer obj1SpriteRenderer = new SpriteRenderer();
@@ -48,23 +67,6 @@ public class LevelEditorScene extends Scene {
         obj1.addComponent(obj1Animation);
         obj1.addComponent(new RigidBody());
         addGameObject(obj1);
-
-        GameObject obj2 = new GameObject("Object 2",
-                new Transform(new Vector2f(500, 100), new Vector2f(256, 256)), 4);
-        SpriteRenderer obj2SpriteRenderer = new SpriteRenderer();
-        obj2SpriteRenderer.setSprite(sprites.getSprite(0));
-        Animation obj2Animation = new Animation();
-        obj2Animation.setSpriteIndexStart(0);
-        obj2Animation.setSpriteIndexEnd(4);
-        obj2Animation.setSpriteFlipTime(0.2f);
-        obj2Animation.setSprites(sprites);
-        obj2.addComponent(obj2SpriteRenderer);
-        obj2.addComponent(obj2Animation);
-        obj2.addComponent(new RigidBody());
-        addGameObject(obj2);
-
-        this.activeGameObject = obj1; // Temporary measure
-
     }
 
     private void loadResources() {
@@ -82,6 +84,10 @@ public class LevelEditorScene extends Scene {
 
         for (GameObject go : this.gameObjects) {
             go.update(deltaTime);
+            if (Vector2DUtil.isBound(go.transform, MouseListener.getOrthoX(), MouseListener.getOrthoY()) &&
+                    MouseListener.mouseButtonDown(GLFW_MOUSE_BUTTON_LEFT)) {
+                this.activeGameObject = go;
+            }
         }
 
         this.renderer.render();
