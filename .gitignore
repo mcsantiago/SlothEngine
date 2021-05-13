@@ -91,5 +91,5 @@ fabric.properties
 .settings/
 bin/
 
-!/imgui.ini
-!/level.json
+!/tmp/imgui.ini
+!/tmp/level.json

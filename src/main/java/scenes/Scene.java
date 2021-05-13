@@ -73,7 +73,7 @@ public abstract class Scene {
                 .create();
 
         try {
-            Files.writeString(Paths.get("level.json"), gson.toJson(gameObjects));
+            Files.writeString(Paths.get("tmp/level.json"), gson.toJson(gameObjects));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -87,7 +87,7 @@ public abstract class Scene {
                 .create();
         String inFile = "";
         try {
-            inFile = new String(Files.readAllBytes(Paths.get("level.json")));
+            inFile = new String(Files.readAllBytes(Paths.get("tmp/level.json")));
         } catch (IOException e) {
             e.printStackTrace(System.err);
         }
